@@ -1,0 +1,9 @@
+.workout-chart {
+  max-width: 600px;
+  margin: 0 auto;
+
+  canvas {
+    width: 100% !important;
+    height: 300px !important;
+  }
+}

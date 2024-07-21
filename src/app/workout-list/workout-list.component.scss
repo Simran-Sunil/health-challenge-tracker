@@ -1,0 +1,41 @@
+.workout-list {
+    max-width: 800px;
+    margin: 0 auto;
+  
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+  
+      input, select {
+        padding: 5px;
+      }
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+  
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+  
+      th {
+        background-color: #f2f2f2;
+      }
+    }
+  
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+  
+      button, select {
+        margin: 0 5px;
+        padding: 5px 10px;
+      }
+    }
+  }

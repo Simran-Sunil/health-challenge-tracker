@@ -1,0 +1,41 @@
+<div class="workout-list">
+  <h2>Workout List</h2>
+  <div class="filters">
+    <input [(ngModel)]="searchTerm" (ngModelChange)="applyFilters()" placeholder="Search by name">
+    <select [(ngModel)]="workoutTypeFilter" (ngModelChange)="applyFilters()">
+      <option value="All">All</option>
+      <option value="Running">Running</option>
+      <option value="Cycling">Cycling</option>
+      <option value="Swimming">Swimming</option>
+      <option value="Yoga">Yoga</option>
+    </select>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Workouts</th>
+        <th>Number of Workouts</th>
+        <th>Total Workout Minutes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let workout of filteredWorkouts | slice: (currentPage-1) * itemsPerPage : currentPage * itemsPerPage">
+        <td>{{ workout.name }}</td>
+        <td>{{ getWorkoutTypes(workout) }}</td>
+        <td>{{ workout.workouts.length }}</td>
+        <td>{{ getTotalWorkoutMinutes(workout) }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <button (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="currentPage = currentPage + 1" [disabled]="currentPage * itemsPerPage >= filteredWorkouts.length">Next</button>
+    <select [(ngModel)]="itemsPerPage">
+      <option [value]="5">5</option>
+      <option [value]="10">10</option>
+      <option [value]="20">20</option>
+    </select>
+  </div>
+</div>

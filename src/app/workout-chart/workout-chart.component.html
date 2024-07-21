@@ -1,0 +1,9 @@
+<div class="workout-chart">
+  <h2>Workout Progress</h2>
+  <select [(ngModel)]="selectedUser" (ngModelChange)="updateChart()">
+    <option *ngFor="let workout of workouts" [value]="workout.name">{{ workout.name }}</option>
+  </select>
+  <div style="position: relative; height:40vh; width:80vw">
+    <canvas #chartCanvas></canvas>
+  </div>
+</div>
